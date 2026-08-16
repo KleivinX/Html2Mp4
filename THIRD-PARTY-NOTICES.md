@@ -1,6 +1,8 @@
 # Third-party notices
 
-html2mp4's own source code is MIT licensed (see [LICENSE](LICENSE)). The
+html2mp4's own source code is MIT licensed (see [LICENSE](LICENSE)). That
+licence covers the source only — it does not cover the bundled FFmpeg binary
+or the mascot artwork. The
 packaged desktop app bundles third-party software with its own terms, listed
 here. If you redistribute a build of html2mp4, these terms travel with it.
 

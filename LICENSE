@@ -19,11 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-The MIT licence above covers the source code of html2mp4.
-
-It does NOT cover everything in a downloaded installer, nor the mascot artwork.
-See THIRD-PARTY-NOTICES.md for the terms that apply to the bundled FFmpeg
-binary (GPL-3.0-or-later), the bundled fonts, and the brand artwork.
