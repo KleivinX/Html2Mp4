@@ -5,9 +5,10 @@
 Please **don't** open a public issue for a security problem.
 
 Report it privately through GitHub's
-[Report a vulnerability](https://github.com/KleivinX/html2mp4/security/advisories/new)
-form, or email **blocksandbrew@gmail.com** with `html2mp4 security` in the
-subject.
+[**Report a vulnerability**](https://github.com/KleivinX/html2mp4/security/advisories/new)
+form. That opens a private advisory only you and the maintainer can see, and
+it's the only channel used for this project — there's no security mailing
+address.
 
 Include what you did, what happened, and what you expected. A proof of concept
 helps a lot. Expect a first reply within about a week — this is a side project,

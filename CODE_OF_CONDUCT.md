@@ -37,7 +37,7 @@ This Code of Conduct applies within all community spaces, and also applies when 
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement at blocksandbrew@gmail.com. All complaints will be reviewed and investigated promptly and fairly.
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the community leaders responsible for enforcement by [opening a private report](https://github.com/KleivinX/html2mp4/security/advisories/new) — the advisory form is the project's private channel to the maintainer, and is visible only to you and them. Conduct that violates GitHub's own terms can also be reported directly to GitHub via [Report abuse](https://github.com/contact/report-abuse). All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the reporter of any incident.
 
