@@ -28,8 +28,10 @@ fi
 # Tag the filename with the arch so an arm64 and an x64 build can coexist as
 # release assets. A plain Intel build keeps the original unsuffixed name.
 ARCH_DIR="$(basename "$(dirname "$APP")")"   # mac | mac-arm64 | mac-universal
+# Every mac build gets an explicit arch in the filename so a user can tell at
+# a glance which one their machine needs.
 case "$ARCH_DIR" in
-  mac)           SUFFIX="" ;;
+  mac)           SUFFIX="-x64" ;;
   mac-universal) SUFFIX="-universal" ;;
   *)             SUFFIX="-${ARCH_DIR#mac-}" ;;
 esac

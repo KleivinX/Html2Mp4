@@ -61,14 +61,15 @@ Grab the installer for your OS from
 [**Releases**](https://github.com/KleivinX/html2mp4/releases/latest), open
 it, done — nothing else to install.
 
-| Platform | File | Size |
+| Your computer | Download | Size |
 |---|---|---|
-| macOS — Apple Silicon | `html2mp4-x.x.x-arm64.dmg` | ~135 MB |
-| macOS — Intel | `html2mp4-x.x.x.dmg` | ~141 MB |
-| Windows | `html2mp4 Setup x.x.x.exe` | ~120 MB |
-| Linux | `html2mp4-x.x.x.AppImage` | ~130 MB |
+| **Mac** with Apple Silicon (M1–M4) | `html2mp4-x.x.x-arm64.dmg` | ~127 MB |
+| **Mac** with Intel | `html2mp4-x.x.x-x64.dmg` | ~141 MB |
+| **Windows** | `html2mp4-Setup-x.x.x.exe` | ~101 MB |
+| **Linux** | `html2mp4-x.x.x.AppImage` | ~135 MB |
 
-Macs since 2020 are Apple Silicon — if you're unsure, check  → About This Mac.
+Not sure which Mac you have?  → **About This Mac**. If the Chip line says
+"Apple M-something", take the `arm64` file; if it says Intel, take `x64`.
 
 > **First launch on macOS.** The app isn't Apple code-signed, so macOS will say
 > it can't verify the developer. Right-click the app → **Open** → **Open**

@@ -20,12 +20,16 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # macos-latest is Apple Silicon; macos-13 is the last Intel runner.
-          # Both are needed because ffmpeg-static fetches a single-arch binary
-          # at install time, so a universal build would ship a broken half.
+          # macos-latest is Apple Silicon, so this produces the -arm64 dmg.
+          #
+          # There is deliberately no macos-13 (Intel) entry: those runners are
+          # scarce on the free tier and routinely sit queued for hours, which
+          # stalls the release job below since it needs every matrix leg to
+          # finish. Build the Intel dmg on an Intel Mac with `npm run dmg:mac`
+          # and attach it to the release by hand. A universal build is not an
+          # option — ffmpeg-static fetches a single-arch binary at install
+          # time, so half of it would be dead.
           - os: macos-latest
-            script: dmg:mac
-          - os: macos-13
             script: dmg:mac
           - os: windows-latest
             script: dist:win
