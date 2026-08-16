@@ -7,12 +7,12 @@
   "scripts": {
     "start": "electron .",
     "doctor": "node src/doctor.js",
-    "dist": "electron-builder",
-    "pack:mac": "electron-builder --mac dir",
+    "dist": "electron-builder --publish never",
+    "pack:mac": "electron-builder --mac dir --publish never",
     "dmg:mac": "npm run pack:mac && bash scripts/make-dmg.sh",
-    "dist:mac": "electron-builder --mac",
-    "dist:win": "electron-builder --win",
-    "dist:linux": "electron-builder --linux"
+    "dist:mac": "electron-builder --mac --publish never",
+    "dist:win": "electron-builder --win --publish never",
+    "dist:linux": "electron-builder --linux --publish never"
   },
   "keywords": [
     "html",

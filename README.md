@@ -63,9 +63,12 @@ it, done — nothing else to install.
 
 | Platform | File | Size |
 |---|---|---|
-| macOS | `html2mp4-x.x.x.dmg` | ~141 MB |
+| macOS — Apple Silicon | `html2mp4-x.x.x-arm64.dmg` | ~135 MB |
+| macOS — Intel | `html2mp4-x.x.x.dmg` | ~141 MB |
 | Windows | `html2mp4 Setup x.x.x.exe` | ~120 MB |
 | Linux | `html2mp4-x.x.x.AppImage` | ~130 MB |
+
+Macs since 2020 are Apple Silicon — if you're unsure, check  → About This Mac.
 
 > **First launch on macOS.** The app isn't Apple code-signed, so macOS will say
 > it can't verify the developer. Right-click the app → **Open** → **Open**

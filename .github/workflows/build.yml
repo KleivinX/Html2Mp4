@@ -20,7 +20,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          # macos-latest is Apple Silicon; macos-13 is the last Intel runner.
+          # Both are needed because ffmpeg-static fetches a single-arch binary
+          # at install time, so a universal build would ship a broken half.
           - os: macos-latest
+            script: dmg:mac
+          - os: macos-13
             script: dmg:mac
           - os: windows-latest
             script: dist:win
