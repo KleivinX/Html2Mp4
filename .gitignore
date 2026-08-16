@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build output — installers are attached to GitHub Releases, never committed
+# (a .dmg is ~141 MB, well past GitHub's 100 MB per-file limit)
+dist/
+build/*.icns
+*.dmg
+*.exe
+*.AppImage
+*.blockmap
+
+# Render output
+frames/
+html2mp4-output/
+*.mp4
+
+# Editors / OS
+.DS_Store
+.*.icloud
+.vscode/
+.idea/
+*.swp
+
+# Local tooling
+.claude/
+
+# Superseded brand art, kept locally but not published — the current marks are
+# public/mascot.png, public/appicon.png and build/icon.png
+/Logo For Html2mp4.png
+/assets/
+/public/logo.png

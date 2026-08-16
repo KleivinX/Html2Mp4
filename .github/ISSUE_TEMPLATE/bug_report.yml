@@ -1,0 +1,75 @@
+name: Bug report
+description: Something doesn't work the way it should
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. The **Dependency check** button (the pulse icon
+        in the app header) prints a lot of what's useful below.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect, and what did you get instead?
+      placeholder: I exported a 10s Remotion scene and the MP4 came out 3s long.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log output
+      description: The log box in the render card, or the error card if it failed.
+      render: shell
+
+  - type: input
+    id: version
+    attributes:
+      label: html2mp4 version
+      placeholder: "1.0.0 — or the commit if you built from source"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - macOS (Apple Silicon)
+        - macOS (Intel)
+        - Windows
+        - Linux
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install
+    attributes:
+      label: How are you running it?
+      options:
+        - Installer (.dmg / .exe / .AppImage)
+        - From source (npm start)
+    validations:
+      required: true
+
+  - type: textarea
+    id: sample
+    attributes:
+      label: Sample HTML
+      description: >
+        If you can share the HTML that triggers it, that's the single most
+        useful thing here. A cut-down version is fine.
+      render: html

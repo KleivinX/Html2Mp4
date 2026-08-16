@@ -1,0 +1,96 @@
+{
+  "name": "html2mp4",
+  "version": "1.0.0",
+  "description": "Lightweight local HTML-to-MP4 converter for creators and presentations",
+  "main": "electron/main.js",
+  "type": "module",
+  "scripts": {
+    "start": "electron .",
+    "doctor": "node src/doctor.js",
+    "dist": "electron-builder",
+    "pack:mac": "electron-builder --mac dir",
+    "dmg:mac": "npm run pack:mac && bash scripts/make-dmg.sh",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win",
+    "dist:linux": "electron-builder --linux"
+  },
+  "keywords": [
+    "html",
+    "mp4",
+    "video",
+    "converter",
+    "animation",
+    "presentation"
+  ],
+  "author": "Kleivin Gjuzi",
+  "license": "MIT",
+  "homepage": "https://github.com/KleivinX/html2mp4#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KleivinX/html2mp4.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KleivinX/html2mp4/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "ffmpeg-static": "^5.2.0",
+    "multer": "^1.4.5-lts.1",
+    "open": "^10.1.0"
+  },
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.html2mp4.app",
+    "productName": "html2mp4",
+    "asar": true,
+    "asarUnpack": [
+      "node_modules/ffmpeg-static/**"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "public/**/*",
+      "!public/logo.png",
+      "electron/**/*",
+      "build/icon.png",
+      "package.json"
+    ],
+    "extraMetadata": {
+      "main": "electron/main.js"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "icon": "build/icon.png",
+      "category": "public.app-category.video"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.png"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "icon": "build/icon.png",
+      "category": "AudioVideo"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    }
+  }
+}
