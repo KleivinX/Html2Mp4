@@ -1,0 +1,30 @@
+name: Feature request
+description: Suggest something html2mp4 should do
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        html2mp4 is deliberately small: HTML in, MP4 out, no accounts, no
+        cloud. Ideas that keep it that way have the best odds.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: Describe the problem, not the solution. What's blocking you today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like it to do?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What have you tried instead?
+      description: Workarounds, other tools, or why the current options fall short.

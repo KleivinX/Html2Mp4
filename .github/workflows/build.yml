@@ -1,0 +1,84 @@
+name: Build installers
+
+# Builds the .dmg (macOS), .exe (Windows) and .AppImage (Linux).
+#
+#   • Push a v* tag  → builds all three and attaches them to a draft release
+#   • Actions tab    → "Run workflow" to build without tagging (artifacts only)
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # macos-latest is Apple Silicon, so this produces the -arm64 dmg.
+          #
+          # There is deliberately no macos-13 (Intel) entry: those runners are
+          # scarce on the free tier and routinely sit queued for hours, which
+          # stalls the release job below since it needs every matrix leg to
+          # finish. Build the Intel dmg on an Intel Mac with `npm run dmg:mac`
+          # and attach it to the release by hand. A universal build is not an
+          # option, because ffmpeg-static fetches a single-arch binary at install
+          # time, so half of it would be dead.
+          - os: macos-latest
+            script: dmg:mac
+          - os: windows-latest
+            script: dist:win
+          - os: ubuntu-latest
+            script: dist:linux
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies (pulls Electron + FFmpeg)
+        run: npm ci
+
+      - name: Build installer
+        run: npm run ${{ matrix.script }}
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: html2mp4-${{ matrix.os }}
+          path: |
+            dist/*.dmg
+            dist/*.exe
+            dist/*.AppImage
+          if-no-files-found: error
+
+  release:
+    name: Draft release
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+
+      - name: List what we're about to publish
+        run: ls -lh artifacts
+
+      # Drafted rather than published, so the release notes can be written
+      # before anyone sees it. Publish it by hand from the Releases page.
+      - name: Attach installers to a draft release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          generate_release_notes: true
+          files: artifacts/*
